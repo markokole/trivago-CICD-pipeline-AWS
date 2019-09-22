@@ -1,2 +1,2 @@
-# trivago-hotel-profiling
+# Trivago CI/CD pipeline in AWS
  
