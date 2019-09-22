@@ -1,5 +1,9 @@
 # A CI/CD pipeline in AWS
 
+[Link to the technical challenge](https://jobs.zealpath.com/m/case/detail/559).
+
+*Text from the technical challenge in case the link does not work:*
+
 AWS DevOps Engineer, Hotel Profiling
 In this case scenario, you are in a team of data scientists and AWS engineers. In the past, data scientists would train models by pulling data to their local machine and training the model there, and then hand over the code to AWS engineers. The engineers then re-implement the model in AWS as a running data pipeline on a case-by-case basis, making sure that we have versioning, environments, etc.
 
