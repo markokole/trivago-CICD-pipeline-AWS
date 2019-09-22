@@ -1,0 +1,42 @@
+FROM centos:latest
+LABEL maintainer marko
+
+EXPOSE 8888
+USER root
+
+RUN yum install -y epel-release \
+    yum -y update
+
+RUN yum install -y \
+        wget \
+        git \
+        python-pip \
+        make
+        
+RUN pip install --upgrade pip
+
+RUN pip install awscli --upgrade
+
+RUN wget https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh -P /tmp
+RUN sh /tmp/Anaconda3-2019.07-Linux-x86_64.sh -b -u -p /usr/local/share/anaconda3
+RUN /usr/local/share/anaconda3/bin/conda update conda -c conda-canary
+
+RUN rm -f /usr/bin/python
+RUN ln -s /usr/local/share/anaconda3/bin/python3 /usr/bin/python
+
+RUN /usr/local/share/anaconda3/bin/conda install -c conda-forge lz4-c awswrangler great-expectations -y
+
+RUN echo "#!/bin/bash" > /start-trivago.sh
+RUN echo "mkdir /tmp/github" >> /start-trivago.sh
+RUN echo "cd /tmp/github" >> /start-trivago.sh
+RUN echo "git clone \$github" >> /start-trivago.sh
+RUN echo "cd trivago-cicd-pipeline-aws" >> /start-trivago.sh
+RUN echo "mkdir trivago" >> /start-trivago.sh
+RUN echo "tar -xzf trivago.tar.gz -C trivago" >> /start-trivago.sh
+RUN echo "BUCKET_NAME=\$bucketname make deploy -C trivago/datalake" >> /start-trivago.sh
+RUN echo "/usr/local/share/anaconda3/bin/jupyter nbconvert --execute trivago/code/usp.ipynb" >> /start-trivago.sh
+RUN echo "python trivago/code/check.py --date 2019-08-01 --bucket \$bucketname" >> /start-trivago.sh
+RUN echo "BUCKET_NAME=\$bucketname make delete -C trivago/datalake" >> /start-trivago.sh
+RUN chmod +x /start-trivago.sh
+
+CMD /start-trivago.sh
