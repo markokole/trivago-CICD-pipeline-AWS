@@ -1,6 +1,6 @@
 # Trivago CI/CD pipeline in AWS
 
-There is no need to clone this repository to your local machine. Read below how to go about it. If very eager go straight to [prerequisities](##Prerequisities).
+There is no need to clone this repository to your local machine. Read below how to go about it. If very eager go straight to [prerequisities](##prerequisities).
 
 The repository proposes a solution to the technical challenge Trivago has posted for an CI/CD Engineer in AWS. More about the challenge in this [local file](Instructions.md).
 
