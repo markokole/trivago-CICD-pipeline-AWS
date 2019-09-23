@@ -56,6 +56,9 @@ The below command will automatically run the Docker and execute everything:
 docker run -e github='https://github.com/markokole/trivago-cicd-pipeline-aws.git' -e bucketname='trivago-s3bucket' --env-file "aws_cred.env" -it trivago-image
 ```
 
+**Caution:**
+The *bucketname* value must match the variable in the Jupyter Notebook *s3_bucket*.
+
 There should be no services in AWS left after the automated job is done.
 
 ## The trivago.tar.gz file
