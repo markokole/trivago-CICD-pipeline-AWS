@@ -59,7 +59,7 @@ docker run -e github='https://github.com/markokole/trivago-cicd-pipeline-aws.git
 ```
 
 **Caution:**
-The *bucketname* value must match the variable in the Jupyter Notebook *s3_bucket*.
+The *bucketname* value must match the variable *s3_bucket* in the Jupyter Notebook *usp.ipynb*.
 
 There should be no services in AWS left after the automated job is done.
 
