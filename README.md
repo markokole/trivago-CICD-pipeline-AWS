@@ -31,6 +31,8 @@ AWS_DEFAULT_REGION=
 AWS_DEFAULT_OUTPUT=text
 ```
 
+There is a [template file](https://github.com/markokole/trivago-cicd-pipeline-aws/blob/master/docker/aws_cred.env.template) available on GitHub.
+
 You should have the *DockerFile* and the *aws_cred.env* ready now.
 
 ## Build the Docker container
