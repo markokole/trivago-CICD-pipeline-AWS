@@ -27,8 +27,8 @@ With your Dockerfile ready and added to the Github repo, design a CI/CD pipeline
 
 *We would like to see:*
 
-A CloudFormation template
-A Makefile to deploy your CI/CD pipeline given the Github repo name as an input parameter
+* A CloudFormation template
+* A Makefile to deploy your CI/CD pipeline given the Github repo name as an input parameter
 
 ### Task 3 – Monitoring in CloudFormation
 
@@ -36,4 +36,4 @@ The build and the validation of the resulting Docker image should have appropria
 
 *We would like to see:*
 
-Monitoring resources in the CloudFormation template
+* Monitoring resources in the CloudFormation template
