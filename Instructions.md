@@ -1,10 +1,10 @@
 # A CI/CD pipeline in AWS
 
-[Link to the technical challenge](https://jobs.zealpath.com/m/case/detail/559).
+[Link to the technical challenge](https://jobs.zealpath.com/m/case/detail/538).
 
 *Text from the technical challenge in case the link does not work:*
 
-AWS DevOps Engineer, Hotel Profiling
+AWS Cloud Engineer, Hotel Profiling
 In this case scenario, you are in a team of data scientists and AWS engineers. In the past, data scientists would train models by pulling data to their local machine and training the model there, and then hand over the code to AWS engineers. The engineers then re-implement the model in AWS as a running data pipeline on a case-by-case basis, making sure that we have versioning, environments, etc.
 
 This handover setup is not ideal because it makes the time to production longer and it requires additional planning and prioritisation. The team is motivated to change that by creating a platform, where data scientists can maintain the whole life cycle of their models as independently from the engineers as possible.
@@ -17,7 +17,7 @@ We want to make the platform easy to adopt for the data scientists. With proper 
 
 ### Task 1 – Dockerfile for running a notebook
 
-Your point of entry is a Github repo with a notebook residing in it. See the attached notebook of this case (usp.ipynb). Create a Dockerfile that will be used to build the runnable Docker image with this model.
+Your point of entry is a Github repo with a notebook residing in it. See the attached notebook of this case (usp.ipynb). Create a Dockerfile that creates an image, which will run the notebook. We’d like to store the output of the notebook in S3 where it can be seen later on.
 
 The data scientist has also provided a script called (check.py) to sanity check the output data. It needs to run after the notebook and notify us if the check failed. The output of this task should be a zip file containing a Dockerfile, and any additional code you write to carry out the tasks.
 
@@ -25,15 +25,7 @@ The data scientist has also provided a script called (check.py) to sanity check 
 
 With your Dockerfile ready and added to the Github repo, design a CI/CD pipeline in CloudFormation that will package the notebook in Github into a Docker image (which can be deployed later on) and validate the resulting image.
 
-*We would like to see:*
+We would like to see:
 
 * A CloudFormation template
 * A Makefile to deploy your CI/CD pipeline given the Github repo name as an input parameter
-
-### Task 3 – Monitoring in CloudFormation
-
-The build and the validation of the resulting Docker image should have appropriate monitoring in place in case of failure. Engineers would like to be informed in a short time of every successful or unsuccessful execution of the CI/CD pipeline by some sort of alarm.
-
-*We would like to see:*
-
-* Monitoring resources in the CloudFormation template
